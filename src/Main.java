@@ -44,6 +44,29 @@ public class Main {
             List<Integer> foundIndices1 = hashTable1.searchAndGetIndices(searchKey);
             List<Integer> foundIndices2 = hashTable2.searchAndGetIndices(searchKey);
 
+            Object dataFromHashTable1 = hashTable1.get(searchKey, 1);
+            Object dataFromHashTable2 = hashTable2.get(searchKey, 2);
+
+            if (dataFromHashTable1 != null || dataFromHashTable2 != null) {
+                System.out.println("Datos encontrados para la clave '" + searchKey + "':");
+
+                if (dataFromHashTable1 != null) {
+                    System.out.println("Datos en Tabla Hash 1:");
+                    System.out.println(dataFromHashTable1);
+                } else {
+                    System.out.println("Clave '" + searchKey + "' no encontrada en Tabla Hash 1.");
+                }
+
+                if (dataFromHashTable2 != null) {
+                    System.out.println("Datos en Tabla Hash 2:");
+                    System.out.println(dataFromHashTable2);
+                } else {
+                    System.out.println("Clave '" + searchKey + "' no encontrada en Tabla Hash 2.");
+                }
+            } else {
+                System.out.println("Clave '" + searchKey + "' no encontrada en ninguna tabla hash.");
+            }
+
             if (!foundIndices1.isEmpty() || !foundIndices2.isEmpty()) {
                 System.out.print("Clave '" + searchKey + "' encontrada en los índices: ");
                 for (int index : foundIndices1) {
